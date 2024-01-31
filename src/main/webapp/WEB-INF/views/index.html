@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/City/ShowCreate}">nhap moi</a>
+<table border="">
+    <tr>
+        <th>
+            name
+        </th>
+        <th>
+            age
+        </th>
+        <th>
+            country
+        </th>
+    </tr>
+    <tr th:each="row : ${CityList}">
+        <th th:text="${row.id}"></th>
+        <th th:text="${row.name}"></th>
+        <th th:text="${row.age}"></th>
+        <th th:text="${row.country.cityCountry}"></th>
+        <th><a th:href="@{/City/delete/{id}(id=${row.id})}">xoa</a></th>
+        <th><a th:href="@{/City/FindById/{id}(id=${row.id})}">xem</a></th>
+        <th><a th:href="@{/City/editF/{id}(id=${row.id})}">sua</a></th>
+    </tr>
+</table>
+</body>
+</html>

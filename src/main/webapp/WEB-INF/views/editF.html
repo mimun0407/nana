@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/City/}">back to list</a>
+<form th:action="@{/City/edit}" method="post" th:object="${city2}">
+    <input type="hidden" th:field="*{id}" name="id">
+    <input type="text" th:field="*{name}">
+    <input type="number" th:field="*{age}" required>
+    <select th:field="*{country}">
+        <option th:each="row : ${AllCountry}" th:text="${row.cityCountry}" th:value="${row.id}"></option>
+    </select>
+    <input type="submit" value="enter">
+</form>
+<p th:each="er : ${HER}" style="color: red" th:text="${er.getDefaultMessage()}" >
+</body>
+</html>
